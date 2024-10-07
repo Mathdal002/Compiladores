@@ -1,0 +1,38 @@
+Start. S ::= "main deus do ceu" Block ;
+LBlock. Block ::= "{" COMANDOS "}" ;
+rules COMANDOS ::= COMANDO | COMANDO COMANDOS ;
+rules COMANDO ::= ATRIB | EXP | OXI | RODEA | TREM | ZOIA | XOVE | BAO
+| VETOR | RENSGA | VAILA | VEMCA | STRUCT | PONTEIRO;
+rules ATRIB ::= Tipo Ident "=" VALUE ";" | Tipo Ident "=" EXP ";" ;
+rules EXP ::= VALUE OpA VALUE | EXP OpA VALUE ;
+rules OXI ::= "Uai" "(" OPL ")" Block | "Uai" "(" OPL ")" Block
+"UaiSo" Block ;
+rules OpL ::= ">" | ">=" | "<" | "<=" | "==" | "!=" ;
+rules OpA ::= "/" | "*" | "+" | "-" ;
+rules OPL ::= VALUE OpL VALUE ;
+rules ZOIA ::= "Zoia" "(" VALUE ")" ";" ;
+rules XOVE ::= "Xove" "(" Tipo Ident ")" ";" ;
+rules RENSGA ::= "Rensga" "(" OPL ")" Block ;
+rules TREM ::= "Trem" "(" Tipo Ident "=" VALUE ";" OPL ";" Ident "++"
+")" Block ;
+rules VALUE ::= Ident | Char | Inteiro | Real ;
+rules Tipo ::= "inteiro" | "real" | "texto" ;
+rules VETOR ::= Tipo Ident "[" Inteiro "]" ";" | "int" Ident "["
+Inteiro "]" "=" "[" ConjInt "]" ";" |
+"float" Ident "[" Inteiro "]" "=" "[" ConjReal "]" ";" | "char" Ident "["
+Inteiro "]" "=" "[" ConjChar "]" ";" ;
+rules STRUCT::= "STRUCT" "[" Inteiro "]" "=" "{" ElementosHeterogeneos
+"}" ";" ;
+rules ElementosHeterogeneos ::= ElementoHeterogeneo |
+ElementoHeterogeneo "," ElementosHeterogeneos ;
+rules ElementoHeterogeneo ::= Char | Real | Inteiro ;
+rules RENSGA ::= "Rensga" Ident "(" ")" Block ;
+rules VAILA ::= "Vai_la" Inteiro ";" ;
+rules VEMCA::= "Vem_ca" Inteiro ":" Block ;
+rules ConjInt ::= Inteiro | Inteiro "," ConjInt ;
+rules ConjReal ::= Real | Real "," ConjReal ;
+rules ConjChar ::= Char | Char "," ConjChar ;
+LDefine. BAO ::= "Bao" Tipo Ident "=" VALUE ";" ;
+LPtr. PONTEIRO ::= Tipo "*" Ident "=" Ident ";" ;
+comment "#" ;
+comment "/#" "#/";
