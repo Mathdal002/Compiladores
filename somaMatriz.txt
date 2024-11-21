@@ -1,0 +1,24 @@
+main deus do ceu {
+    inteiro matrizA[2][2] = [[1, 2], [3, 4]];
+    inteiro matrizB[2][2] = [[5, 6], [7, 8]];
+    inteiro matrizResultado[2][2];
+    inteiro i = 0;
+    inteiro j = 0;
+
+    Trem (inteiro i = 0; i < 2; i++) {
+        Trem (inteiro j = 0; j < 2; j++) {
+            matrizResultado[i][j] = matrizA[i][j] + matrizB[i][j];
+        }
+    }
+
+    Trem (inteiro i = 0; i < 2; i++) {
+        Trem (inteiro j = 0; j < 2; j++) {
+            Zoia("Resultado [");
+            Zoia(i);
+            Zoia("][");
+            Zoia(j);
+            Zoia("]: ");
+            Zoia(matrizResultado[i][j]);
+        }
+    }
+}

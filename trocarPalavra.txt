@@ -1,0 +1,17 @@
+main deus do ceu {
+    inteiro i = 0;
+    texto textoOriginal[10] = ["este", "é", "um", "texto", "com", "várias", "palavras", "e", "texto", "repetido"];
+    texto palavraProcurada = "texto";
+    texto palavraNova = "frase";
+
+    Trem (inteiro i = 0; i < 10; i++) {
+        Uai (textoOriginal[i] == palavraProcurada) {
+            textoOriginal[i] = palavraNova;
+        }
+    }
+
+    Trem (inteiro i = 0; i < 10; i++) {
+        Zoia("Palavra: ");
+        Zoia(textoOriginal[i]);
+    }
+}
