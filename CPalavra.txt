@@ -1,0 +1,39 @@
+main deus do ceu {
+    intero contador = 0;
+    stringo texto = "exemplo exemplo teste exemplo";
+    stringo palavraProcurada = "exemplo";
+
+    Funciona_Assim contarPalavras() {
+        intero comprimentoTexto = 0;
+        intero tamanhoPalavra = 0;
+
+        Quanto (texto[comprimentoTexto] != 0) {
+            comprimentoTexto = comprimentoTexto + 1;
+        }
+
+        Quanto (palavraProcurada[tamanhoPalavra] != 0) {
+            tamanhoPalavra = tamanhoPalavra + 1;
+        }
+
+        Pa (intero i = 0 | i <= comprimentoTexto - tamanhoPalavra | i = i + 1) {
+            Uai (texto[i] == palavraProcurada[0]) {
+                intero j = 0;
+                Quanto (j < tamanhoPalavra && texto[i + j] == palavraProcurada[j]) {
+                    j = j + 1;
+                }
+                Uai (j == tamanhoPalavra) {
+                    contador = contador + 1;
+                }
+            }
+        }
+    }
+
+    Funciona_Assim mostrarResultado() {
+        Zoia("A palavra foi encontrada ", contador, " vezes.");
+    }
+
+    LABEL 1: {
+        contarPalavras();
+        mostrarResultado();
+    }
+}

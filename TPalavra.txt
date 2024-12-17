@@ -1,0 +1,16 @@
+main deus do ceu {
+    stringo Texto = "Salve o Corinthians, O campeão dos campeões. Eternamente, Dentro dos nossos corações. Salve o Corinthians, De tradições e glórias mil. Tu és o orgulho, Dos esportistas do Brasil.";
+
+    stringo PalavraAntiga = "Corinthians";
+    stringo PalavraNova = "Gigante";
+
+    Funciona_Assim Substituir() {
+        Zoia(PalavraNova);  # Substituição direta
+
+        Pa(intero i = 0 | i < 5 | i = i + 1) {
+            Zoia(" ");  # Adiciona espaços para simular palavras substituídas
+        }
+    }
+
+    Substituir();
+}

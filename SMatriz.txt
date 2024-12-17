@@ -1,0 +1,18 @@
+main deus do ceu {
+    intero somaTotal = 0;
+    intero matriz[2][3] = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ];
+
+    Pa(intero i = 0 | i < 2 | i = i + 1) {
+        intero somaLinha = 0;
+        Pa(intero j = 0 | j < 3 | j = i + 1) {
+            somaLinha = somaLinha + matriz[i][j];
+        }
+        somaTotal = somaTotal + somaLinha;
+        Zoia(somaLinha); 
+    }
+
+    Zoia(somaTotal); 
+}
