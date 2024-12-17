@@ -1,0 +1,75 @@
+Sst.    S::= "main deus do ceu" Block ;
+
+LBlock. Block ::= "{" CMDS "}" ;  
+
+rules   CMDS ::= CMD | CMD CMDS ;
+
+rules   CMD ::= ATRIB | EXP | UAI | QUANTO | PA | ZOIA | VEMCA | PERMA | TREM | FUNC | VAILA | LABEL | STRUCT | APONTA; 
+
+rules   ATRIB ::= Type Ident "=" VALUE ";" 
+                | Type Ident "=" EXP ";" 
+                | Ident "=" VALUE ";" 
+                | Ident "=" EXP ";" ;
+
+rules   EXP ::= EXP OPerA EXP 
+              |  EXP OPerL EXP
+              | "(" EXP ")"
+              | VALUE ;
+
+rules   UAI ::= "Uai" "(" OPL ")" Block |  
+                "Uai" "(" OPL ")" Block "So" Block ;
+
+rules   OPerL ::= ">" | ">=" | "<" | "<=" | "==" | "<>" | "!=" | "&&";
+
+rules   OPerA ::= "/" | "*" | "+" | "-"  ;
+
+rules   OPL ::= EXP OPerL EXP ;
+
+rules ZOIA ::= "Zoia" "(" VALUE ")" ";"
+             | "Zoia" "(" VALUE "," VALUE ")" ";"
+             | "Zoia" "(" VALUE "," VALUE "," VALUE ")" ";";
+
+rules   VEMCA  ::= "Vemca" "("Type Ident ")" ";" ;
+
+rules   QUANTO ::= "Quanto" "(" OPL ")" Block ;
+
+rules PA ::= "Pa" "(" Type Ident "=" VALUE "|" OPL "|" Ident "=" EXP ")" Block ;
+
+rules   VALUE ::= Ident 
+                | Ident "[" EXP "]"
+                | Ident "[" EXP "]" "[" EXP "]"
+                | String    
+                | Integer 
+                | Double ;
+
+rules   Type ::= "intero" | "floati" | "stringo" ;
+
+rules TREM ::= Type Ident "[" Integer "]" ";" 
+              | Type Ident "[" Integer "]" "=" "[" ConjValues "]" ";"           
+              | Type Ident "[" Integer "]" "[" Integer "]" ";"                  
+              | Type Ident "[" Integer "]" "[" Integer "]" "=" "[" ConjValues2D "]" ";" ;
+
+rules   STRUCT ::= "Istrut" "[" Integer "]" "=" "{" HeteroElements "}" ";" ;
+rules   HeteroElements ::= HeteroElement | HeteroElement "," HeteroElements;
+rules   HeteroElement ::= String | Double | Integer;
+
+rules   FUNC ::= "Funciona_Assim" Ident "(" ")" Block
+             | Ident "(" ")" ";"
+             | Ident "(" VALUE ")";
+
+rules   VAILA ::= "Vaila" Integer ";" ;
+
+rules   LABEL ::= "LABEL" Integer ":" Block;
+
+rules   ConjValues ::= VALUE 
+                     | VALUE "," ConjValues ;
+
+rules   ConjValues2D ::= "[" ConjValues "]" 
+                       | "[" ConjValues "]" "," ConjValues2D ;
+
+LConst. PERMA ::= "Perma" Type Ident "=" VALUE ";" ;
+
+LPoint. APONTA ::= Type "*" Ident "=" Ident ";" ;
+
+comment "#" ;
+comment "/*" "*/" ;
